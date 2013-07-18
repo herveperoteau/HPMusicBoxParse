@@ -9,6 +9,7 @@
 #import "HPMusicBoxParse.h"
 #import <Parse/Parse.h>
 #import "ArtistParseEntity.h"
+#import "HPMusicHelper.h"
 
 static BOOL initOK = NO;
 
@@ -27,9 +28,11 @@ static BOOL initOK = NO;
     
     NSAssert(initOK, @"Lib HPMusicBoxParse not initialized ???");
     
+    NSString *cleanName = [HPMusicHelper cleanArtistName:name];
+    
     PFQuery *query = [ArtistParseEntity query];
     
-    [query whereKey:@"name" equalTo:name];
+    [query whereKey:@"cleanName" equalTo:cleanName];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *results, NSError *error) {
     
@@ -44,7 +47,8 @@ static BOOL initOK = NO;
             
             // creation de l'artist dans Parse
             result = [ArtistParseEntity object];
-            result.name = name;
+            result.cleanName = cleanName;
+            result.twitterAccount = @"";
             
             [result saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 

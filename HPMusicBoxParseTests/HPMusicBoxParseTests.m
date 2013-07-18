@@ -40,14 +40,33 @@
 
 -(void) testGetRihanna {
 
-    NSString *name = @"rihanna";
+    NSString *name = @"Rihanna";
     
     [HPMusicBoxParse getArtistByName:name completion:^(ArtistParseEntity *artist, NSError *error) {
 
         XCTAssertNil(error, @"%@", [error localizedDescription]);
         XCTAssertNotNil(artist, @"%@ Not exist and not created ???", name);
         
-        NSLog(@"Artist=%@ Twitter=%@", artist.name, artist.twitterAccount);
+        NSLog(@"Artist=%@ Twitter=%@", artist.cleanName, artist.twitterAccount);
+        
+        dispatch_semaphore_signal(semaphore);
+    }];
+    
+    while (dispatch_semaphore_wait(semaphore, DISPATCH_TIME_NOW))
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode
+                                 beforeDate:[NSDate dateWithTimeIntervalSinceNow:10]];
+}
+
+-(void) testGetTheStrokes {
+    
+    NSString *name = @"The Strokes";
+    
+    [HPMusicBoxParse getArtistByName:name completion:^(ArtistParseEntity *artist, NSError *error) {
+        
+        XCTAssertNil(error, @"%@", [error localizedDescription]);
+        XCTAssertNotNil(artist, @"%@ Not exist and not created ???", name);
+        
+        NSLog(@"Artist=%@ Twitter=%@", artist.cleanName, artist.twitterAccount);
         
         dispatch_semaphore_signal(semaphore);
     }];

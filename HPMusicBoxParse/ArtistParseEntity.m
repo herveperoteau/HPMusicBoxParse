@@ -11,7 +11,7 @@
 
 @implementation ArtistParseEntity
 
-@dynamic name, twitterAccount;
+@dynamic cleanName, twitterAccount;
 
 + (NSString *)parseClassName {
 

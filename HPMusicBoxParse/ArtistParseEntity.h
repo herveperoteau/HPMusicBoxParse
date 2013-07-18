@@ -11,7 +11,7 @@
 
 @interface ArtistParseEntity : PFObject<PFSubclassing>
 
-@property (retain) NSString *name;
+@property (retain) NSString *cleanName;
 @property (retain) NSString *twitterAccount;
 
 + (NSString *)parseClassName;
