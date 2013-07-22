@@ -11,9 +11,20 @@
 #import "ArtistParseEntity.h"
 #import "HPMusicHelper.h"
 
+#define APPID      @"WrptsUZpYHx4gR0Nh1GCNdKrEeYFxAHMv7re1raR"
+#define CLIENTKEY  @"vWPYADVo1oBErKFC4uP2r4Oflk0QPFfyWLb854Lq"
+
 static BOOL initOK = NO;
 
 @implementation HPMusicBoxParse
+
++(void) initializeIfNeeded {
+    
+    if (!initOK) {
+        
+        [HPMusicBoxParse initializeApplicationId:APPID clientKey:CLIENTKEY];
+    }
+}
 
 +(void) initializeApplicationId:(NSString *)appId clientKey:(NSString *)clientKey {
 
@@ -26,7 +37,7 @@ static BOOL initOK = NO;
 +(void) getArtistByName:(NSString *)name
              completion:(void (^)(ArtistParseEntity *artist, NSError *error)) completion {
     
-    NSAssert(initOK, @"Lib HPMusicBoxParse not initialized ???");
+    [HPMusicBoxParse initializeIfNeeded];
     
     NSString *cleanName = [HPMusicHelper cleanArtistName:name];
     

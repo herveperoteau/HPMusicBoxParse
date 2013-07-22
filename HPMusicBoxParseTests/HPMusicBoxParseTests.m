@@ -9,9 +9,6 @@
 #import <XCTest/XCTest.h>
 #import "HPMusicBoxParse.h"
 
-#define APPID      @"WrptsUZpYHx4gR0Nh1GCNdKrEeYFxAHMv7re1raR"
-#define CLIENTKEY  @"vWPYADVo1oBErKFC4uP2r4Oflk0QPFfyWLb854Lq"
-
 @interface HPMusicBoxParseTests : XCTestCase
 
 @end
@@ -27,8 +24,6 @@
     
     // Set-up code here.
     semaphore = dispatch_semaphore_create(0);
-
-    [HPMusicBoxParse initializeApplicationId:APPID clientKey:CLIENTKEY];
 }
 
 - (void)tearDown

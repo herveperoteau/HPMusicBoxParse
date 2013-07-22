@@ -12,9 +12,6 @@
 
 @interface HPMusicBoxParse : NSObject
 
-+(void) initializeApplicationId:(NSString *)appId
-                      clientKey:(NSString *)clientKey;
-
 +(void) getArtistByName:(NSString *)name
              completion:(void (^)(ArtistParseEntity *artist, NSError *error)) completion;
 
