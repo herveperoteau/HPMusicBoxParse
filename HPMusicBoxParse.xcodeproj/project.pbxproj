@@ -16,8 +16,6 @@
 		09C5202E17965E5E001E5F22 /* libHPMusicBoxParse.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 09C5201617965E5E001E5F22 /* libHPMusicBoxParse.a */; };
 		09C5203417965E5E001E5F22 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 09C5203217965E5E001E5F22 /* InfoPlist.strings */; };
 		09C5203617965E5E001E5F22 /* HPMusicBoxParseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C5203517965E5E001E5F22 /* HPMusicBoxParseTests.m */; };
-		09C5204017965FC0001E5F22 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09C5203F17965FC0001E5F22 /* Parse.framework */; };
-		09C5204117965FC0001E5F22 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09C5203F17965FC0001E5F22 /* Parse.framework */; };
 		09C520461796624B001E5F22 /* ArtistParseEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C520451796624B001E5F22 /* ArtistParseEntity.m */; };
 		09C520471796624B001E5F22 /* ArtistParseEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C520451796624B001E5F22 /* ArtistParseEntity.m */; };
 		09C520481796714C001E5F22 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09C520421796600D001E5F22 /* AudioToolbox.framework */; };
@@ -30,6 +28,8 @@
 		09C5205617967182001E5F22 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09C5205517967182001E5F22 /* Security.framework */; };
 		09C5205817967188001E5F22 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09C5205717967188001E5F22 /* StoreKit.framework */; };
 		09C5205A17967192001E5F22 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09C5205917967192001E5F22 /* SystemConfiguration.framework */; };
+		09F605D017A23BBF00EF0F96 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09F605CF17A23BBF00EF0F96 /* Parse.framework */; };
+		09F605D117A23BBF00EF0F96 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09F605CF17A23BBF00EF0F96 /* Parse.framework */; };
 		92E28CDF4092444586E62B79 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 356FDBB9F3F64FAA8060B93C /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -69,7 +69,6 @@
 		09C5203117965E5E001E5F22 /* HPMusicBoxParseTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HPMusicBoxParseTests-Info.plist"; sourceTree = "<group>"; };
 		09C5203317965E5E001E5F22 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		09C5203517965E5E001E5F22 /* HPMusicBoxParseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HPMusicBoxParseTests.m; sourceTree = "<group>"; };
-		09C5203F17965FC0001E5F22 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		09C520421796600D001E5F22 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		09C520441796624B001E5F22 /* ArtistParseEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistParseEntity.h; sourceTree = "<group>"; };
 		09C520451796624B001E5F22 /* ArtistParseEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistParseEntity.m; sourceTree = "<group>"; };
@@ -83,7 +82,8 @@
 		09C5205717967188001E5F22 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		09C5205917967192001E5F22 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		09C71B4F1797B71800375A48 /* HPMusicBoxParse.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = HPMusicBoxParse.podspec; sourceTree = "<group>"; };
-		09C71B501797B71800375A48 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		09C71B501797B71800375A48 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		09F605CF17A23BBF00EF0F96 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		356FDBB9F3F64FAA8060B93C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4E9D343FE134D03A4B8302F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -93,8 +93,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09C5204017965FC0001E5F22 /* Parse.framework in Frameworks */,
 				09C5201A17965E5E001E5F22 /* Foundation.framework in Frameworks */,
+				09F605D017A23BBF00EF0F96 /* Parse.framework in Frameworks */,
 				92E28CDF4092444586E62B79 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -107,6 +107,7 @@
 				09C5205817967188001E5F22 /* StoreKit.framework in Frameworks */,
 				09C5205617967182001E5F22 /* Security.framework in Frameworks */,
 				09C520541796717C001E5F22 /* QuartzCore.framework in Frameworks */,
+				09F605D117A23BBF00EF0F96 /* Parse.framework in Frameworks */,
 				09C5205217967173001E5F22 /* MobileCoreServices.framework in Frameworks */,
 				09C520501796716A001E5F22 /* libz.1.1.3.dylib in Frameworks */,
 				09C5204E17967161001E5F22 /* CoreLocation.framework in Frameworks */,
@@ -115,7 +116,6 @@
 				09C520481796714C001E5F22 /* AudioToolbox.framework in Frameworks */,
 				09C5202817965E5E001E5F22 /* XCTest.framework in Frameworks */,
 				09C5202917965E5E001E5F22 /* Foundation.framework in Frameworks */,
-				09C5204117965FC0001E5F22 /* Parse.framework in Frameworks */,
 				09C5202B17965E5E001E5F22 /* UIKit.framework in Frameworks */,
 				09C5202E17965E5E001E5F22 /* libHPMusicBoxParse.a in Frameworks */,
 			);
@@ -150,6 +150,7 @@
 		09C5201817965E5E001E5F22 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				09F605CF17A23BBF00EF0F96 /* Parse.framework */,
 				09C5205917967192001E5F22 /* SystemConfiguration.framework */,
 				09C5205717967188001E5F22 /* StoreKit.framework */,
 				09C5205517967182001E5F22 /* Security.framework */,
@@ -160,7 +161,6 @@
 				09C5204B17967159001E5F22 /* CoreGraphics.framework */,
 				09C5204917967153001E5F22 /* CFNetwork.framework */,
 				09C520421796600D001E5F22 /* AudioToolbox.framework */,
-				09C5203F17965FC0001E5F22 /* Parse.framework */,
 				09C5201917965E5E001E5F22 /* Foundation.framework */,
 				09C5202717965E5E001E5F22 /* XCTest.framework */,
 				09C5202A17965E5E001E5F22 /* UIKit.framework */,
