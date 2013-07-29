@@ -14,70 +14,86 @@
 #define APPID      @"WrptsUZpYHx4gR0Nh1GCNdKrEeYFxAHMv7re1raR"
 #define CLIENTKEY  @"vWPYADVo1oBErKFC4uP2r4Oflk0QPFfyWLb854Lq"
 
-static BOOL initOK = NO;
+static NSOperationQueue *myQueueQueryOneByOne;
 
 @implementation HPMusicBoxParse
-
-+(void) initializeIfNeeded {
-    
-    if (!initOK) {
-        
-        [HPMusicBoxParse initializeApplicationId:APPID clientKey:CLIENTKEY];
-    }
-}
-
-+(void) initializeApplicationId:(NSString *)appId clientKey:(NSString *)clientKey {
-
-    initOK = YES;
-    
-    [ArtistParseEntity registerSubclass];
-    [Parse setApplicationId:appId clientKey:clientKey];
-}
 
 +(void) getArtistByName:(NSString *)name
              completion:(void (^)(ArtistParseEntity *artist, NSError *error)) completion {
     
     [HPMusicBoxParse initializeIfNeeded];
     
-    NSString *cleanName = [HPMusicHelper cleanArtistName:name];
-    
-    PFQuery *query = [ArtistParseEntity query];
-    
-    [query whereKey:@"cleanName" equalTo:cleanName];
-    
-    [query findObjectsInBackgroundWithBlock:^(NSArray *results, NSError *error) {
-    
+    [myQueueQueryOneByOne addOperationWithBlock:^{
+        
+        NSLog(@"%@.getArtistByName: startOperation getArtistByName %@", self.class, name);
+        
+        NSString *cleanName = [HPMusicHelper cleanArtistName:name];
+        
+        PFQuery *query = [ArtistParseEntity query];
+        
+        [query whereKey:@"cleanName" equalTo:cleanName];
+        
+        NSError *error = nil;
+        
+        NSArray *results = [query findObjects:&error];
+        
         ArtistParseEntity *result = nil;
-
-        if (results != nil && [results count] > 0) {
             
+        if (results != nil && [results count] > 0) {
+                
             result = results[0];
         }
-                
-        if ( result==nil && error==nil ) {
             
+        if ( result==nil && error==nil ) {
+                
             // creation de l'artist dans Parse
+            
+            NSLog(@"%@.getArtistByName start createParseEntity %@", self.class, cleanName);
+            
             result = [ArtistParseEntity object];
             result.cleanName = cleanName;
             result.twitterAccount = @"";
             
-            [result saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                
-                if (completion) {
-                    
-                    completion (result, error);
-                }
-            }];
-            
-            return;
+            NSLog(@"%@.getArtistByName save ParseEntity %@", self.class, cleanName);
+            [result save:&error];
+            NSLog(@"%@.getArtistByName save ended error=%@", self.class, error);
+
         }
         
         if (completion) {
             
+            NSLog(@"%@.getArtistByName completion(%@, %@)", self.class, result, error);
             completion(result, error);
         }
     }];
+
 }
+
+#pragma mark - Initialisation
+
++(void) initializeIfNeeded {
+    
+    if (myQueueQueryOneByOne == nil) {
+        
+        static dispatch_once_t onceToken;
+        
+        dispatch_once(&onceToken, ^{
+            
+            myQueueQueryOneByOne = [[NSOperationQueue alloc] init];
+            myQueueQueryOneByOne.name = @"MusicBoxParseQueueQueryOneByOne";
+            myQueueQueryOneByOne.maxConcurrentOperationCount = 1;
+            
+            [HPMusicBoxParse initializeApplicationId:APPID clientKey:CLIENTKEY];
+        });
+    }
+}
+
++(void) initializeApplicationId:(NSString *)appId clientKey:(NSString *)clientKey {
+    
+    [ArtistParseEntity registerSubclass];
+    [Parse setApplicationId:appId clientKey:clientKey];
+}
+
 
 
 @end
