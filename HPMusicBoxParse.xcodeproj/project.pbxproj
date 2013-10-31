@@ -28,6 +28,7 @@
 		09C5205617967182001E5F22 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09C5205517967182001E5F22 /* Security.framework */; };
 		09C5205817967188001E5F22 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09C5205717967188001E5F22 /* StoreKit.framework */; };
 		09C5205A17967192001E5F22 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09C5205917967192001E5F22 /* SystemConfiguration.framework */; };
+		09F19FB81820DD84006C49F1 /* AlbumParseEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F19FB71820DD84006C49F1 /* AlbumParseEntity.m */; };
 		09F605D017A23BBF00EF0F96 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09F605CF17A23BBF00EF0F96 /* Parse.framework */; };
 		09F605D117A23BBF00EF0F96 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09F605CF17A23BBF00EF0F96 /* Parse.framework */; };
 		92E28CDF4092444586E62B79 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 356FDBB9F3F64FAA8060B93C /* libPods.a */; };
@@ -83,6 +84,8 @@
 		09C5205917967192001E5F22 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		09C71B4F1797B71800375A48 /* HPMusicBoxParse.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = HPMusicBoxParse.podspec; sourceTree = "<group>"; };
 		09C71B501797B71800375A48 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		09F19FB61820DD84006C49F1 /* AlbumParseEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumParseEntity.h; sourceTree = "<group>"; };
+		09F19FB71820DD84006C49F1 /* AlbumParseEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumParseEntity.m; sourceTree = "<group>"; };
 		09F605CF17A23BBF00EF0F96 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		356FDBB9F3F64FAA8060B93C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4E9D343FE134D03A4B8302F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -172,6 +175,8 @@
 		09C5201B17965E5E001E5F22 /* HPMusicBoxParse */ = {
 			isa = PBXGroup;
 			children = (
+				09F19FB61820DD84006C49F1 /* AlbumParseEntity.h */,
+				09F19FB71820DD84006C49F1 /* AlbumParseEntity.m */,
 				09C520441796624B001E5F22 /* ArtistParseEntity.h */,
 				09C520451796624B001E5F22 /* ArtistParseEntity.m */,
 				09C5201E17965E5E001E5F22 /* HPMusicBoxParse.h */,
@@ -322,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				09C5202117965E5E001E5F22 /* HPMusicBoxParse.m in Sources */,
+				09F19FB81820DD84006C49F1 /* AlbumParseEntity.m in Sources */,
 				09C520461796624B001E5F22 /* ArtistParseEntity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

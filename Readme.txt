@@ -19,3 +19,4 @@ Details here:
     https://parse.com/apps/quickstart#ios/native/existing
 
 
+Admin:

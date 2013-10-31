@@ -9,5 +9,6 @@ Pod::Spec.new do |s|
   s.source = { :git => "https://github.com/herveperoteau/HPMusicBoxParse.git"}
   s.source_files = 'HPMusicBoxParse'
   s.requires_arc = true
-  s.dependency 'Parse'
+  #s.dependency 'Parse'
+  #s.ios.framework = 'Parse'
 end

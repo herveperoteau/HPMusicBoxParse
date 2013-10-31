@@ -72,4 +72,23 @@
 }
 
 
+-(void) testSaveSatisfaction {
+    
+    [HPMusicBoxParse saveSatisfactionAlbumTitle:@"Test title"
+                                           Year:@"2013"
+                                     ArtistName:@"Test name"
+                                   Satisfaction:[NSNumber numberWithInteger:200]
+                           PreviousSatisfaction:[NSNumber numberWithInteger:100]
+                                     completion:^(AlbumParseEntity *album, NSError *error) {
+                                         
+                                         dispatch_semaphore_signal(semaphore);
+                                     }];
+    
+    while (dispatch_semaphore_wait(semaphore, DISPATCH_TIME_NOW))
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode
+                                 beforeDate:[NSDate dateWithTimeIntervalSinceNow:10]];
+}
+
+
+
 @end
