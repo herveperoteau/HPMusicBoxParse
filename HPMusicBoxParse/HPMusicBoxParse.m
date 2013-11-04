@@ -128,7 +128,7 @@ static NSOperationQueue *myQueueQueryOneByOne;
                 result = [AlbumParseEntity object];
                 
                 result.title = title;
-                result.year = year;
+                result.year = (year?year:@"");
                 result.artist = artistName;
                 result.artistCleanName = cleanName;
             }
