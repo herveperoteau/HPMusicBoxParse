@@ -136,7 +136,7 @@ static NSOperationQueue *myQueueQueryOneByOne;
             NSInteger countParticipation = result.countParticipation.integerValue;
             unsigned long long cumul = result.satisfactionCumul.unsignedLongLongValue;
             
-            if (previousSatisfaction == nil || countParticipation==0) {
+            if (previousSatisfaction == nil || previousSatisfaction.integerValue == 0) {
                 
                 countParticipation++;
             }
