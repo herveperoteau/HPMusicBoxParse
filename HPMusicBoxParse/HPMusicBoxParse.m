@@ -90,6 +90,7 @@ static NSOperationQueue *myQueueQueryOneByOne;
         AlbumParseEntity *result = nil;
 
         NSString *cleanName = [HPMusicHelper cleanArtistName:artistName];
+        NSString *titleClean = [HPMusicHelper cleanAlbumTitle:title];
         
 //        NSPredicate *predicate = [NSPredicate predicateWithFormat: @"title = '%@' AND artistCleanName = '%@'",
 //                                  title, cleanName];
@@ -100,7 +101,7 @@ static NSOperationQueue *myQueueQueryOneByOne;
         
         PFQuery *query = [PFQuery queryWithClassName:@"AlbumParseEntity"];
         
-        [query whereKey:@"title" equalTo:title];
+        [query whereKey:@"titleClean" equalTo:titleClean];
         [query whereKey:@"artistCleanName" equalTo:cleanName];
         
         NSArray *results = [query findObjects:&error];
@@ -111,8 +112,8 @@ static NSOperationQueue *myQueueQueryOneByOne;
             
             if (results.count > 1) {
                 
-                NSLog(@"Bizarre, %d albums avec title='%@' AND artistCleanName = '%@' !!!",
-                      results.count, title, cleanName);
+                NSLog(@"Bizarre, %d albums avec titleClean='%@' AND artistCleanName = '%@' !!!",
+                      results.count, titleClean, cleanName);
             }
             
             result = results[0];
@@ -127,6 +128,7 @@ static NSOperationQueue *myQueueQueryOneByOne;
             
                 result = [AlbumParseEntity object];
                 
+                result.titleClean = titleClean;
                 result.title = title;
                 result.year = (year?year:@"");
                 result.artist = artistName;

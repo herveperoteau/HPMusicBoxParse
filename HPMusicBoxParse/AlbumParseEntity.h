@@ -15,6 +15,7 @@
 @property (retain) NSString *artist;
 @property (retain) NSString *artistCleanName;
 @property (retain) NSString *title;
+@property (retain) NSString *titleClean;
 @property (retain) NSString *year;
 @property (retain) NSNumber *satisfaction;
 @property (retain) NSNumber *satisfactionCumul;

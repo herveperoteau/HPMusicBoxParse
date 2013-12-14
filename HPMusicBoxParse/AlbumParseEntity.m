@@ -11,7 +11,7 @@
 
 @implementation AlbumParseEntity
 
-@dynamic artist, artistCleanName, title, year, satisfaction, satisfactionCumul, countParticipation;
+@dynamic artist, artistCleanName, title, titleClean, year, satisfaction, satisfactionCumul, countParticipation;
 
 + (NSString *)parseClassName {
     
