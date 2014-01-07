@@ -37,7 +37,21 @@ static NSOperationQueue *myQueueQueryOneByOne;
         
         NSError *error = nil;
         
+        NSLog(@"%@.getArtistByName: startOperation getArtistByName %@ findObjects ...", self.class, name);
+
         NSArray *results = [query findObjects:&error];
+        
+        if (error) {
+        
+            NSLog(@"%@.getArtistByName: startOperation getArtistByName %@ findObjects: error=%@", self.class, name, error);
+            
+            if (completion) {
+                completion(nil, error);
+            }
+            
+            return;
+        }
+        
         
         ArtistParseEntity *result = nil;
             
