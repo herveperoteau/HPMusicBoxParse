@@ -29,7 +29,7 @@ static NSOperationQueue *myQueueQueryOneByOne;
         
         NSLog(@"%@.getArtistByName: startOperation getArtistByName %@", self.class, name);
         
-        NSString *cleanName = [HPMusicHelper cleanArtistName:name];
+        NSString *cleanName = [HPMusicHelper cleanArtistName:name PreserveAccent:NO PreservePrefix:NO];
         
         PFQuery *query = [ArtistParseEntity query];
         
@@ -103,7 +103,7 @@ static NSOperationQueue *myQueueQueryOneByOne;
         NSError *error = nil;
         AlbumParseEntity *result = nil;
 
-        NSString *cleanName = [HPMusicHelper cleanArtistName:artistName];
+        NSString *cleanName = [HPMusicHelper cleanArtistName:artistName PreserveAccent:NO PreservePrefix:NO];
         NSString *titleClean = [HPMusicHelper cleanAlbumTitle:title];
         
 //        NSPredicate *predicate = [NSPredicate predicateWithFormat: @"title = '%@' AND artistCleanName = '%@'",
