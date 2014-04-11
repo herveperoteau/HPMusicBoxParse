@@ -120,14 +120,14 @@ static NSOperationQueue *myQueueQueryOneByOne;
         
         NSArray *results = [query findObjects:&error];
         
-        NSLog(@"Nb result = %d", results.count);
+        NSLog(@"Nb result = %lu", (unsigned long)results.count);
         
         if (results != nil && [results count] > 0) {
             
             if (results.count > 1) {
                 
-                NSLog(@"Bizarre, %d albums avec titleClean='%@' AND artistCleanName = '%@' !!!",
-                      results.count, titleClean, cleanName);
+                NSLog(@"Bizarre, %lu albums avec titleClean='%@' AND artistCleanName = '%@' !!!",
+                      (unsigned long)results.count, titleClean, cleanName);
             }
             
             result = results[0];
